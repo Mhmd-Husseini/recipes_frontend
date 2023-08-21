@@ -94,7 +94,13 @@ width: 100%;
 }
 
 .like{
+  cursor: pointer;
   color: rgb(27, 159, 133) ;
+}
+
+.unlike{
+  cursor: pointer;
+  color: rgb(76, 79, 78) ;
 }
 
 .comment{

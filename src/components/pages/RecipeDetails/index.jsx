@@ -8,11 +8,13 @@ const RecipeDetails = () => {
   const { recipe_id } = useParams();
   const [details, setDetails] = useState([]);
   const [comment, setComment] = useState('');
+  const [isLiked, setIsLiked] = useState(false);
 
   const fetchDetails = async () => {
     try {
       const response = await sendRequest({ route: `/getRecipe/${recipe_id}`, body: '' });
       setDetails(response);
+      setIsLiked(response.is_liked);
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -22,6 +24,16 @@ const RecipeDetails = () => {
   useEffect(() => {
     fetchDetails();
   }, []);
+
+  async function likeRecipe() {
+    try {
+      const response = await sendRequest({ method: "POST", route: `/getRecipe/${recipe_id}/like`, body: '' });
+      setIsLiked(!isLiked)
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="details">
@@ -66,7 +78,7 @@ const RecipeDetails = () => {
         </ul>
       </div>
       <div className='comment-input'>
-        <i class="fa-solid fa-thumbs-up fa-2xl like"></i>        
+        <i className={`fa-solid fa-thumbs-up fa-2xl like-icon ${isLiked ? 'like' : 'unliked'}`} onClick={likeRecipe}></i>        
         <Input  value={comment} onChange={(newComment) => setComment(newComment)}  placeholder={'Comment here'}/>
       </div>
     </div>
