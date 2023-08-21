@@ -5,9 +5,12 @@ import './styles/utilities2.css'
 import Authentication from './components/pages/Authentication';
 import RecipeDetails from './components/pages/RecipeDetails';
 import Landing from './components/pages/Landing';
+import Nav from './components/Nav';
 
 function App() {
   return (
+    <>
+    <Nav />
     <BrowserRouter>
       <Routes>
         <Route index element={<Authentication />} />
@@ -15,6 +18,7 @@ function App() {
         <Route path='/landing/:recipe_id' element={<RecipeDetails />} />
       </Routes>
     </BrowserRouter>
+    </>
   );
 }
 
