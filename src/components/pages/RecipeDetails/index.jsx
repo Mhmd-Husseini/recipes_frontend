@@ -39,9 +39,9 @@ const RecipeDetails = () => {
     <div className="details">
       <div className="recipe-images">
         {details.images &&
-          details.images.map((image) => (
-          <img key={image.id} src={image.image_url} alt={`Recipe ${details.title}`} />
-        ))}
+          details.images.map((image, index) => (
+            <img  key={index} src={`data:image/jpeg;base64,${image.image_url}`} alt={`Recipe ${details.title}`} />
+          ))}
       </div>
       <div className='name'>
         <h1>{details.title}</h1>

@@ -1,11 +1,12 @@
    .recipe-card img {
     max-width: 100%;
-    height: auto;
+    height: 280px;
   }
   .recipe-card {
     background-color: #f8f8f8;
     border: 1px solid #e0e0e0;
     padding: 20px;
+    height: 460px;
     width: 300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
@@ -14,3 +15,8 @@
   .recipe-card:hover {
     transform: translateY(-5px);
   }
+
+  .recipe-card p {
+    margin: 0 0 10px 0 ;
+  }
+
